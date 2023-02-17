@@ -1,16 +1,68 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>About</title>
-    </head>
-    <body>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-        <h1>AstroBlog-About</h1>
-        <p>This is a tutorial app for learning Astro framework.</p>
-    </body>
+const pageTitle = "About me";
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+
+const identity = {
+   firstName: "Leandro",
+   age: 28,
+   country: "Argentina",
+   occupation: "Full Stack Web Developer",
+   hobbies: ["playing guitar", "videogames", "napping"],
+};
+
+const skills = [
+   "Javascript",
+   "React",
+   "Redux",
+   "Astro",
+   "Express",
+   "Sequelize",
+   "PostgreSQL",
+];
+---
+
+<html lang="en">
+   <head>
+      <style define:vars={{ skillColor, fontWeight, textCase }}>
+         .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+         }
+      </style>
+   </head>
+
+   <BaseLayout pageTitle={pageTitle}>
+      <h2>Hi everyone!</h2>
+      <p>
+         My name is {identity.firstName}, {identity.age} years old and I'm from
+         {identity.country}
+      </p>
+
+      <p>
+         I am working through Astro's introductory tutorial. This is the second
+         page on my website, and it's the first one I built myself!
+      </p>
+
+      <p>
+         This site will update as I complete more of the tutorial, so keep
+         checking back and see how my journey is going! Two of my hobbies are {
+            identity.hobbies[0]
+         } and {identity.hobbies[2]}
+      </p>
+
+      <p>My skills are:</p>
+      <ul class="skill">
+         {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+
+      <p>This is a tutorial app for learning Astro framework.</p>
+   </BaseLayout>
+
+
 </html>

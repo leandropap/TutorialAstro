@@ -1,15 +1,9 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Home</title>
-	</head>
-	<body>
-		<a href="/about">About</a>
-		<a href="/blog">Blog</a>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-		<h1>AstroBlog-Home</h1>
-	</body>
-</html>
+const pageTitle = "AstroBlog Home";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+   <h2>A new way to web building</h2>
+</BaseLayout>
