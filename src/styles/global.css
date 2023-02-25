@@ -61,6 +61,15 @@ a:focus {
     display: unset;
 }
 
+html.dark {
+    background-color: #3e3e3e;
+    color: #fff;
+}
+
+.dark .nav-links a {
+    color: #fff;
+}
+
 @media screen and (min-width: 636px) {
     .nav-links {
         margin-left: 5em;
